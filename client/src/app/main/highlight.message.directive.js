@@ -13,17 +13,22 @@ export function highlightMessageDirective( $compile ) {
                 var startCode = (content.indexOf("```")==0)
                 if(codeParts.length>1 || startCode){
                     el.html("");
-                    
+                    var start = new Date().getTime();
                     codeParts.forEach(function(part, it){
                         if(startCode != (it%2)){
                           console.log("is Code");
-                            el.append("<hljs no-scape>"+part+"</hljs>");    
+                            el.append("<hljs id='code"+start+"_"+it+"' no-scape>"+part+"</hljs>");    
+                            el.append("<button class='btn clipboard' data-clipboard-target='#code"+start+"_"+it+"' style='float:right; margin-top: -3em;'>"+
+                                "Copy"+
+                            "</button>");
+                            
                         }else{
                             el.append(part);
                         } 
                         console.log(it, part);
-                    });                    
+                    });     
                      $compile(el.contents())(scope);                  
+                     new Clipboard('.clipboard');
                 }
                 // Angular un-watch 
                 onlyRunOne();

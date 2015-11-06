@@ -17,7 +17,8 @@
     "animate.css": "~3.4.0",
     "angular": "~1.4.2",
     "highlightjs": "~8.8.0",
-    "angular-highlightjs": "~0.4.3"
+    "angular-highlightjs": "~0.4.3",
+    "clipboard": "~1.5.3"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"
