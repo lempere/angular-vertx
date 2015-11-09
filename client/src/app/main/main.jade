@@ -25,4 +25,6 @@ div
           div(data-ng-bind="message.text")
           footer
     footer
-        textarea(data-ng-model="main.message" ng-keyup="$event.keyCode == 13 && main.post()")
+        div(ng-controller="DropFile" ngf-drop="uploadFiles($files)" ng-model="file" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="false" accept="image/*,application/pdf" 
+        ngf-pattern="'image/*,application/pdf'")
+            textarea(data-ng-model="main.message" ng-keyup="$event.keyCode == 13 && main.post()")
